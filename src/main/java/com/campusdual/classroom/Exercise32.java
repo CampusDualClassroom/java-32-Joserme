@@ -22,10 +22,11 @@ public class Exercise32 {
     private static String generateUserInputToSave(){
         StringBuilder sb = new StringBuilder();
         System.out.println("Escribe debajo el texto que quieras. Pulsa \"ENTER\" 2 veces seguidas para finalizar:");
-        Utils.init();
-        String string;
-        while (!(string = Utils.string()).isEmpty()){
-            sb.append(string).append(System.lineSeparator());
+
+       String mensaje =  Utils.string();
+        sb.append(mensaje);
+        while (!(mensaje = Utils.string()).isEmpty()){
+            sb.append(mensaje).append(System.lineSeparator());
         }
         return sb.toString();
     }
@@ -37,7 +38,7 @@ public class Exercise32 {
         BufferedWriter varBuffWriter = null;
         try {
 
-            varBuffWriter = new BufferedWriter (new FileWriter("src/main/resources/data.txt",true));
+            varBuffWriter = new BufferedWriter (new FileWriter("src/main/resources/data.txt"));
             varBuffWriter.write(string);
             varBuffWriter.flush();
         } catch (IOException e) {
